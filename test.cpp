@@ -10,12 +10,10 @@
 #include <string>
 #include <iostream>
 #include <sstream>
-#include "linked_list.h" //edited so it compiles
+#include "linked_list.h"
 using namespace std;
 
-/*
- *
- */
+
 int main(int argc, char** argv) {
 
     // Test 1 - basic constructor
@@ -329,5 +327,5 @@ int main(int argc, char** argv) {
         cout << "Test 17 passed (input stream operator)" << endl;
     delete list1;
 	string exit;
-	cin >> exit;
+	cin >> exit; //temporary addition, waits to exit
 }

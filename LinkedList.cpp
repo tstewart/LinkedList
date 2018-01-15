@@ -2,7 +2,7 @@
  * File:   LinkedList.cpp
  * Author: Thomas Stewart
  *
- * Last modified 02/04/2017
+ * Last modified 15/01/2018
  * Implements the LinkedList class.
  */
 
@@ -59,10 +59,10 @@ void LinkedList::push(int value)
 	head->data = value;
     return;
   }
-  Node *current = new Node();
-  current->data = value;
-  current->next = head;
-  head = current;
+  Node *newHead = new Node();
+  newHead->data = value;
+  newHead->next = head;
+  head = newHead;
 
 }
 
@@ -224,12 +224,12 @@ bool LinkedList::operator ==(const LinkedList& other) const
     bool isEqual = true;
     while(isEqual && current->next != nullptr && currentOther->next != nullptr) {
       if(current->data != currentOther->data) {
-        isEqual = false;
+		  return false;
       }
       current = current->next;
       currentOther = currentOther->next;
     }
-  	return isEqual;
+  	return true;
 
 }
 
@@ -251,13 +251,16 @@ bool LinkedList::operator !=(const LinkedList& other) const
 //pushes a new value onto the head of the list
 LinkedList& LinkedList::operator +(int value)
 {
-
-    return *this;
+	push(value);
+	return *this;
 }
 
 //copy assignment operator (performs a deep copy)
 LinkedList& LinkedList::operator =(const LinkedList& rhs)
 {
+	if (this == &rhs) {
+		return *this;
+	}
     bool isValid = (head->next != nullptr);
     while(isValid) {
       isValid = (head->next != nullptr);
