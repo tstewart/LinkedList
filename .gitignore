@@ -31,5 +31,9 @@
 *.out
 *.app
 
-# Other
-test.cpp
+# VS
+*.sln
+*.suo
+*.opensdf
+*.vcxproj
+*.filters
