@@ -10,7 +10,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
-#include "files/linked_list.h" //edited so it compiles
+#include "linked_list.h" //edited so it compiles
 using namespace std;
 
 /*
@@ -328,4 +328,6 @@ int main(int argc, char** argv) {
     else
         cout << "Test 17 passed (input stream operator)" << endl;
     delete list1;
+	string exit;
+	cin >> exit;
 }

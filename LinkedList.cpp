@@ -79,7 +79,6 @@ string LinkedList::toString() const
 {
     string part;
     string full = "";
-    bool isValid = true;
     Node *current = head;
     while(true) {
       bool nextCheck = (current->next == nullptr);
@@ -114,7 +113,7 @@ int LinkedList::pop()
     }
     else {
       removedVal = head->data;
-      delete head;
+	  head->data = NULL;
       head = head->next;
     }
     return removedVal;
@@ -188,9 +187,9 @@ void LinkedList::removeAllOccurences(int value)
       if(previousNode == nullptr) //if head then pop
         pop();
       else {
-        int previousVal = previousNode->data;
         previousNode->next = check->next;
-        delete check;
+		check->data = NULL;
+		check = previousNode;
       }
     }
     isNext = check->next != nullptr;
