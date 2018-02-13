@@ -321,6 +321,7 @@ int main(int argc, char** argv) {
     instream << " 10" << " 11" << " 10" << " 2" << endl;
     instream >> *list1;
     str = list1->toString();
+	cout << str << endl;
     if (str != string("2 10 11 10"))
         cerr << "ERROR - test 17 failed (input stream operator)" << endl;
     else

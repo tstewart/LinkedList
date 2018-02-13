@@ -273,13 +273,17 @@ LinkedList& LinkedList::operator =(const LinkedList& rhs)
 //pushes values from an input stream onto the front of the list
 std::istream& operator>>(std::istream &in, LinkedList &value)
 {
-
+	while (in.peek() != in.end) {
+		int val;
+		in >> val;
+		value.push(val);
+	}
     return in;
 }
 
 //writes the values, in order, to an output stream
 std::ostream& operator<<(std::ostream &out, const LinkedList &value)
 {
-
+	out << value.toString();
     return out;
 }
